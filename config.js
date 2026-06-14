@@ -17,7 +17,7 @@
 
 const CONFIG = {
   CLIENT_ID: '620323473420-jdvn4sgkil9lh6sl1e1qf4k7l6flgetp.apps.googleusercontent.com',
-  API_KEY: 'AIzaSyCV_Xk7v01G9iy25WdWwWmg5RHt9is2oN0',
+  API_KEY: '',
   SCOPES: [
     'https://www.googleapis.com/auth/calendar',
     'https://www.googleapis.com/auth/calendar.events',
