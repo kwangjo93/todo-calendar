@@ -17,6 +17,7 @@ const App = (() => {
     UI.renderReminders();
     UI.showSignedOut();
     UI.renderCalendar(viewYear, viewMonth, [], {}, openDayDetail);
+    Reminders.setOnChange(() => UI.renderReminders());
     bindStaticEvents();
   }
 
@@ -48,6 +49,9 @@ const App = (() => {
       if (profile && profile.email) Auth.saveEmail(profile.email);
       UI.showUser(profile);
 
+      // Load reminders from Drive (cross-device sync)
+      await Reminders.loadFromDrive();
+
       calendars = await CalendarAPI.listCalendars();
       const DEFAULT_CALENDARS = ['생산일정', '연구일정'];
       const defaultMatches = calendars.filter(c => DEFAULT_CALENDARS.includes(c.summary));
@@ -65,6 +69,7 @@ const App = (() => {
   }
 
   function onSignedOut() {
+    Reminders.resetDrive();
     UI.showSignedOut();
     // Restore login button in case it was showing "연결 중..."
     const authBtn = document.getElementById('btn-auth');

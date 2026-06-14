@@ -21,8 +21,10 @@ const CONFIG = {
   SCOPES: [
     'https://www.googleapis.com/auth/calendar',
     'https://www.googleapis.com/auth/calendar.events',
+    'https://www.googleapis.com/auth/drive.appdata',
   ].join(' '),
   DISCOVERY_DOCS: [
     'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest',
+    'https://www.googleapis.com/discovery/v1/apis/drive/v3/rest',
   ],
 };
