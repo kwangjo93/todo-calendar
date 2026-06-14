@@ -58,13 +58,13 @@ const Auth = (() => {
     tokenClient.requestAccessToken({ prompt: '' });
   }
 
-  // Manual sign-in (button click)
+  // Manual sign-in (button click) — always force consent to ensure all scopes granted
   function signIn() {
-    if (!setupTokenClient('', 'select_account')) {
+    if (!setupTokenClient('', 'consent')) {
       alert('Google 라이브러리가 아직 로드되지 않았습니다. 잠시 후 다시 시도해주세요.');
       return;
     }
-    tokenClient.requestAccessToken({ prompt: 'select_account' });
+    tokenClient.requestAccessToken({ prompt: 'consent' });
   }
 
   function signOut() {
